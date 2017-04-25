@@ -96,7 +96,7 @@ var CoreMobCamera = (function() {
 
 
 	function cropAndResize() {
-		$.showLoading();
+		
 		var photoObj = document.getElementById('originalPhoto');
 
 		imgCrop = new PhotoCrop(photoObj, {
