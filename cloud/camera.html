@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="applicable-device" content="mobile">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+    <link href="css/jquery.mobile-1.0.1.min.css" rel="stylesheet" type="text/css">
+    <link href="css/yjf.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="libs/jquery-weui/css/weui.min.css">
+    <link rel="stylesheet" href="libs/jquery-weui/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>扫码</title>
+</head>
+<body>
+<!--header-->
+<div class="header bg-m">
+    <a class="icon-back" onclick="history.back()"></a>
+    <p class="header-title fc-w">扫码</p>
+</div>
+
+<!--扫码-->
+<div class="scanner-bg">
+    <div class="scanner-box">
+        <img src="images/ercode.png" class="er-code">
+        <span class="exp">将收据/发票放入框内</span>
+        <div class="scanner pull-right"><img src="images/sao.png"></div>
+        <div class="code-box" id="photoEffect">
+            <!--收据/发票图片-->
+            <div id="photoResultContainer">
+                <img id="originalPhoto" hidden class="code-img">
+                <img id="resultPhoto" class="code-img">
+            </div>
+            <!--手动输入框-->
+            <div class="hand-input-box">
+                <div class="btn-close" id="btn_close"><img src="images/icon-close.png"></div>
+                <input placeholder="请输入正确的金额" class="hand-input">
+                <p>请输入正确的金额</p>
+                <button class="submit-btn fc-w bg-m text-center scanner-submit">确定</button>
+            </div>
+        </div>
+        <div class="scanner-btns">
+            <!--相册-->
+            <div class="pictures"><img src="images/pictures.png"><input type="file" multiple accept="image/*" onchange="PreviewImage(this,'imgHeadPhoto','divPreview')"></div>
+            <!--照相机-->
+            <div class="photo">
+                <img src="images/photo.png" onclick="document.getElementById('camera').click();return false;">
+                <form id="filePickerContainer" style="position:absolute;left: -999px">
+                    <label for="camera"></label>
+                    <!-- in the latest spec, the capture attribute type has been switched to a boolean. -->
+                    <input type="file" capture="camera" accept="image/*" name="camera" id="camera" />
+                </form>
+            </div>
+            <!--手动输入-->
+            <div class="hand" id="hand_input"><img src="images/hand.png"><p>手动输入</p></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+    <a class="nav-item active">
+        <img src="./images/icon-home.png" alt="" class="nav-normal">
+        <img src="./images/icon-home-on.png" alt="" class="nav-active">
+        <p>首页</p>
+    </a>
+    <a class="nav-item">
+        <img src="./images/icon-user.png" alt="" class="nav-normal">
+        <img src="./images/icon-user-on.png" alt="" class="nav-active">
+        <p>我的</p>
+    </a>
+    <a class="nav-item">
+        <img src="./images/icon-profile.png" alt="" class="nav-normal">
+        <img src="./images/icon-profile-on.png" alt="" class="nav-active">
+        <p>设置</p>
+    </a>
+</div>
+<script src="libs/jquery.min.js"></script>
+<script defer src="js/util.js"></script>
+<script defer src="js/iDB.js"></script>
+<script defer src="js/swiper-1.7.js"></script>
+<script defer src="js/photoCrop.js"></script>
+<script defer src="js/photoFilter.js"></script>
+<script defer src="js/effects.js"></script>
+<script defer src="js/main.js"></script>
+<script>
+    $("#hand_input").click(function () {
+        $(".hand-input-box").fadeIn();
+    });
+    $("#btn_close").click(function () {
+        $(".hand-input-box").fadeOut();
+    });
+</script>
+</body>
+</html>
