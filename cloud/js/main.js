@@ -112,7 +112,7 @@ var CoreMobCamera = (function() {
 
 		// A photo taken (or a file chosen)
 		document.getElementById('camera').addEventListener('change', function() {
-			showUI(loader);
+			$.showLoading();
 			fileSelected('camera');
 		}, false);
 
@@ -245,7 +245,7 @@ var CoreMobCamera = (function() {
 			if(newFilteredPhoto) {
 				console.log('canvas loaded!');
 				newFilteredPhoto.style.width = newFilteredPhoto.style.height = viewWidth +'px';
-				hideUI(loader);
+				$.hideLoading();
 			} else {
 				console.log('canvas not loaded yet...');
 				setTimeout(arguments.callee, 100);
@@ -472,7 +472,7 @@ var CoreMobCamera = (function() {
 
 		resultPhoto.src = newImg;
 		resultPhoto.style.width =  310 +'px';
-		resultPhoto.style.height =  226 +'px';
+		resultPhoto.style.height =  230 +'px';
 
 		// Removing the previously created canvas, if any
 		var prevEffect = document.getElementById('filteredPhoto');
@@ -500,13 +500,13 @@ var CoreMobCamera = (function() {
 
 		if (! imgFormat.test(localFile.type)) {
 			alert('The image format, ' + localFile.type + ' is not supported.');
-			hideUI(loader);
+			$.hideLoading();
 			return;
 		}
 
 		if (localFile.size > maxFilesize) { //this should exclude a huge panorama pics
 			alert('The file size is too large.');
-			hideUI(loader);
+			$.hideLoading();
 			return;
 		}
 
@@ -519,7 +519,7 @@ var CoreMobCamera = (function() {
 			orig.onload = function () {
 				cropAndResize();
 				//displayFileInfo(localFile, orig);
-				hideUI(loader);
+				$.hideLoading();
 			};
 			orig.src = e.target.result;
 		};
@@ -559,20 +559,20 @@ var CoreMobCamera = (function() {
 	}
 
 	function uploadFinish(e) {
-		hideUI(loader);
+		$.hideLoading();
 		loader.textContent = 'Processing...';
 		reInit();
 	}
 
 	function uploadError(e) {
 		alert('An error occurred while uploading the file.');
-		hideUI(loader);
+		$.hideLoading();
 		console.log(e);
 	}
 
 	function uploadAbort(e) {
 		alert('The upload has been aborted by the user or the connection has been dropped.');
-		hideUI(loader);
+		$.hideLoading();
 		console.log(e);
 	}
 
