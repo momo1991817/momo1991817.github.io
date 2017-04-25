@@ -89,13 +89,14 @@ var CoreMobCamera = (function() {
 		document.getElementById('camera').addEventListener('change', function() {
                         
 			fileSelected('camera');
-			$.showLoading();
+			
 		}, false);
 
 	}
 
 
 	function cropAndResize() {
+		$.showLoading();
 		var photoObj = document.getElementById('originalPhoto');
 
 		imgCrop = new PhotoCrop(photoObj, {
@@ -152,6 +153,7 @@ var CoreMobCamera = (function() {
 		};
 
 		imgFile.readAsDataURL(localFile);
+		
 		
 	}
 
