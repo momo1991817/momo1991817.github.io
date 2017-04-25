@@ -47,7 +47,7 @@
             <div class="pictures"><img src="images/pictures.png"><input type="file" multiple accept="image/*" onchange="PreviewImage(this,'imgHeadPhoto','divPreview')"></div>
             <!--照相机-->
             <div class="photo">
-                <img src="images/photo.png" onclick="camera();">
+                <img src="images/photo.png" onclick="document.getElementById('camera').click();return false;">
                 <form id="filePickerContainer" style="position:absolute;left: -999px">
                     <label for="camera"></label>
                     <!-- in the latest spec, the capture attribute type has been switched to a boolean. -->
