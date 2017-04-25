@@ -500,13 +500,13 @@ var CoreMobCamera = (function() {
 
 		if (! imgFormat.test(localFile.type)) {
 			alert('The image format, ' + localFile.type + ' is not supported.');
-			$.hideLoading();
+			// $.hideLoading();
 			return;
 		}
 
 		if (localFile.size > maxFilesize) { //this should exclude a huge panorama pics
 			alert('The file size is too large.');
-			$.hideLoading();
+			// $.hideLoading();
 			return;
 		}
 
@@ -519,7 +519,7 @@ var CoreMobCamera = (function() {
 			orig.onload = function () {
 				cropAndResize();
 				//displayFileInfo(localFile, orig);
-				$.hideLoading();
+				// $.hideLoading();
 			};
 			orig.src = e.target.result;
 		};
