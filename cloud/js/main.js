@@ -124,7 +124,7 @@ var CoreMobCamera = (function() {
 	 */
 
 	function fileSelected(capture) {
-
+		$.showLoading();
 		var localFile = document.getElementById(capture).files[0],
 			imgFormat = /^(image\/bmp|image\/gif|image\/jpeg|image\/png)$/i;
 
@@ -152,6 +152,7 @@ var CoreMobCamera = (function() {
 		};
 
 		imgFile.readAsDataURL(localFile);
+		$.hideLoading();
 	}
 
 
