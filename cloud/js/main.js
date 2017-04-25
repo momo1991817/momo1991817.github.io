@@ -153,7 +153,7 @@ var CoreMobCamera = (function() {
 		};
 
 		imgFile.readAsDataURL(localFile);
-		
+		$.hideLoading();
 		
 	}
 
