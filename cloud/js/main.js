@@ -153,7 +153,11 @@ var CoreMobCamera = (function() {
 		};
 
 		imgFile.readAsDataURL(localFile);
-		$.hideLoading();
+		$.showLoading();
+
+		setTimeout(function() {
+			$.hideLoading();
+		}, 3000)
 		
 	}
 
@@ -163,8 +167,3 @@ var CoreMobCamera = (function() {
 onload = function() {
 	CoreMobCamera.init();
 };
-function camera() {
-	document.getElementById('camera').click();
-	$.showLoading();
-	return false;
-}
