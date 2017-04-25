@@ -87,8 +87,9 @@ var CoreMobCamera = (function() {
 
 		// A photo taken (or a file chosen)
 		document.getElementById('camera').addEventListener('change', function() {
-
+                        
 			fileSelected('camera');
+			$.showLoading();
 		}, false);
 
 	}
@@ -124,7 +125,6 @@ var CoreMobCamera = (function() {
 	 */
 
 	function fileSelected(capture) {
-		$.showLoading();
 		var localFile = document.getElementById(capture).files[0],
 			imgFormat = /^(image\/bmp|image\/gif|image\/jpeg|image\/png)$/i;
 
@@ -152,7 +152,7 @@ var CoreMobCamera = (function() {
 		};
 
 		imgFile.readAsDataURL(localFile);
-		$.hideLoading();
+		
 	}
 
 
