@@ -40,16 +40,18 @@
     </a>
 </div>
 <script>
-var FNScanner = api.require('FNScanner');
-FNScanner.openScanner({
-    autorotation: true
-}, function(ret, err) {
-    if (ret) {
-        alert(JSON.stringify(ret));
-    } else {
-        alert(JSON.stringify(err));
+    window.apiready = function(){
+        var FNScanner = api.require('FNScanner');
+        FNScanner.openScanner({
+            autorotation: true
+        }, function(ret, err) {
+            if (ret) {
+                alert(JSON.stringify(ret));
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
     }
-});
 </script>
 </body>
 </html>
