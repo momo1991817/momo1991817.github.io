@@ -41,8 +41,10 @@
 </div>
 <script>
     window.apiready = function(){
-        var scanner = api.require('scanner');
-scanner.open(function(ret, err) {
+        var FNScanner = api.require('FNScanner');
+FNScanner.openScanner({
+    autorotation: true
+}, function(ret, err) {
     if (ret) {
         alert(JSON.stringify(ret));
     } else {
