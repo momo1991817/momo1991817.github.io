@@ -41,16 +41,14 @@
 </div>
 <script>
     window.apiready = function(){
-        var FNScanner = api.require('FNScanner');
-        FNScanner.openScanner({
-            autorotation: true
-        }, function(ret, err) {
-            if (ret) {
-                alert(JSON.stringify(ret));
-            } else {
-                alert(JSON.stringify(err));
-            }
-        });
+        var scanner = api.require('scanner');
+scanner.open(function(ret, err) {
+    if (ret) {
+        alert(JSON.stringify(ret));
+    } else {
+        alert(JSON.stringify(err));
+    }
+});
     }
 </script>
 </body>
