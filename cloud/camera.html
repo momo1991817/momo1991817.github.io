@@ -89,6 +89,9 @@
 <script defer src="js/effects.js"></script>
 <script defer src="js/main.js"></script>
 <script>
+     window.apiready = function(){
+     $api.clearStorage();
+     }
     $("#hand_input").click(function () {
         $(".hand-input-box").fadeIn();
     });
